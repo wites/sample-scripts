@@ -1,0 +1,230 @@
+:root
+    --text: rgba(0,0,0,.8)
+    --head: rgb(22, 22, 22)
+    --link: rgb(0, 58, 138)
+    --hover: rgb(11, 113, 255)
+
+*
+    box-sizing border-box
+
+body
+    font-family 'Inter', sans-serif
+    font-size 16px
+    line-height 1.6
+    margin 0
+
+p
+    margin-top 0
+
+.divcontainer
+    max-width 1080px
+    margin 1rem
+    .hero-section &
+        margin 0
+    @media screen and (min-width 1112px)
+        margin 1rem auto !important
+
+.hero-section
+    background-color #004DB8
+    padding 1rem
+.header
+    margin-bottom 2rem
+
+.hero
+    display grid
+    grid-row-gap 1rem
+    @media screen and (max-width 914px)
+        max-width 712px
+        margin auto
+        grid-template-columns 1fr
+    &-main
+        display grid
+        &-cont
+            position relative
+            padding-top 75% /* 9 / 16 = 0.5625 */
+            width 100%
+            overflow hidden
+            & .hero-content
+                display grid
+                position absolute
+                top 0
+                left 0
+                width 100%
+                height 100%
+    &-secondary
+        display grid
+        grid-row-gap 1rem
+        &-cont
+            position relative
+            //padding-top 56.25% /* 9 / 16 = 0.5625 */
+            padding-top 75%
+            width 100%
+            overflow hidden
+        &-content
+            position absolute
+            top 0
+            left 0
+            width 100%
+            height 100%
+            display grid
+    @media screen and (min-width 915px)
+        grid-template-columns 2fr 1fr
+        grid-column-gap 1rem
+        &-main
+            display grid
+    @media screen and (min-width 656px) and (max-width 914px)
+        &-secondary
+            display grid
+            grid-template-columns 1fr 1fr
+            grid-column-gap 1rem
+
+.rounded-corner
+    border-radius (8/16)rem
+    background-color rgba(255,255,255,.5)
+    overflow hidden
+
+.bordered
+    border 1px solid hsla(215, 100%, 26%, 0.9)
+
+.hero-content
+    position relative
+
+.hero-img
+    display block
+    object-fit cover
+    width 100%
+    height 100%
+    position absolute
+
+.hero-copy
+    z-index 2
+    padding 1rem
+    color #fff
+    position relative
+    display flex
+    flex-direction column
+    justify-content space-between
+    height calc(100% - 24px)
+    &:before
+        position absolute
+        content ""
+        display block
+        width 100%
+        height 100%
+        top 0
+        left 0
+        background linear-gradient(to bottom, hsla(215,100%,16%,.5) 0%, hsla(215,100%,16%,.5) 25%, hsla(215,100%,16%,0) 100%)
+        z-index -1
+        .hero-main-cont &
+            display none
+
+.hero-category
+    color #fff
+    font-size clamp(0.75rem, 0.8vw, 0.875rem)
+    line-height 1.5rem
+    text-transform uppercase
+    letter-spacing .1rem
+    font-weight 400
+    .hero-main-cont &
+        display none
+
+.hero-title
+    font-size clamp(1.625rem, 3vw, 2rem)
+    line-height 2.25rem
+    margin-top 0
+    margin-bottom (24/16)rem
+    .hero-secondary &
+        font-size clamp(1.375rem, 2vw, 1.6rem)
+        line-height 1.75rem
+    .hero-main-cont &
+        display none
+
+.hero-cta-link
+    text-decoration none
+    border 1px solid hsla(215,100%,36%, .15)
+    padding .5rem
+    border-radius (5/16)rem
+    font-size (14/16)rem
+    background-color #fff
+    color var(--link)
+    font-weight 700
+    font-size clamp(0.75rem, 0.8vw, 0.875rem)
+    line-height 1.5rem
+    display inline-block
+    transition box-shadow .2s ease-in-out 
+    &:hover
+        background-color var(--hover)
+        color #fff
+        border-color var(--hover)
+        box-shadow 3px 3px 15px hsla(215,100%,16%,.9)
+    .hero-main-cont &
+        display none
+
+.hero-slide-container
+    position relative
+    height 100%
+
+// .swiper
+//     .hero-main &
+//         width 96vw
+//         @media screen and (min-width 800px)
+//             width 89vw
+//         @media screen and (min-width 844px)
+//             width 85vw
+//         @media screen and (min-width 915px)
+//             width 64vw
+//         @media screen and (min-width 1112px)
+//             width (707.328/16)rem
+//     .hero-secondary &
+//         width 95vw
+//         @media screen and (min-width 656px)
+//             width 47vw
+//         @media screen and (min-width 800px)
+//             width 44vw
+//         @media screen and (min-width 844px)
+//             width 41vw
+//         @media screen and (min-width 915px)
+//             width 32vw
+//         @media screen and (min-width 1112px)
+//             width (354.672/16)rem
+
+.swiper-horizontal
+    & .swiper-pagination
+        bottom 1rem !important
+
+.swiper-pagination-bullet
+    background hsla(215,100%,36%,1) !important
+    opacity .7 !important
+    &.swiper-pagination-bullet-active
+        background hsla(215,100%,66%,1) !important
+        opacity 1 !important
+
+.autoplay-progress
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index: 10;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--swiper-theme-color);
+
+.autoplay-progress svg
+      --progress: 0;
+      position: absolute;
+      left: 0;
+      top: 0px;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      stroke-width: 4px;
+      stroke: var(--swiper-theme-color);
+      fill: none;
+      stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+      stroke-dasharray: 125.6;
+      transform: rotate(-90deg);
+
+//debug()
